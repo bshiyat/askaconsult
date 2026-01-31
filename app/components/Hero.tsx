@@ -1,74 +1,72 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-const Earth = dynamic(() => import('./Earth'), { ssr: false });
+import Earth from './Earth';
 
 export default function Hero() {
   return (
-    <section className="hero-section">
-      {/* 3D Earth Background */}
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
+      {/* Particle Background */}
       <Earth />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-[2]" />
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a] z-[1]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(10,10,10,0.8)_70%)] z-[1]" />
 
       {/* Content */}
-      <div className="hero-content">
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           {/* Badge */}
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 border border-white/20 bg-white/5 backdrop-blur-sm mb-8"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.2 }}
-          >
-            <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-            <span className="font-[family-name:var(--font-share-tech-mono)] text-white/70 text-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 bg-white/5 backdrop-blur-sm rounded-full mb-8">
+            <span className="w-1.5 h-1.5 bg-white/50 rounded-full" />
+            <span className="font-[family-name:var(--font-share-tech-mono)] text-white/50 text-xs tracking-wide">
               Canada-Based IT Consulting
             </span>
-          </motion.div>
+          </div>
 
           {/* Main Title */}
-          <h1 className="hero-title">
-            Intelligence
-            <br />
-            <span className="text-white/60">at Scale</span>
+          <h1 className="font-[family-name:var(--font-orbitron)] text-white mb-6">
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
+              Intelligence
+            </span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white/30 mt-2">
+              at Scale
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-subtitle">
-            We deliver cutting-edge technology solutions that transform businesses.
-            From strategic IT planning to bulletproof cybersecurity.
+          <p className="font-[family-name:var(--font-share-tech-mono)] text-white/40 text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed px-4">
+            Enterprise technology solutions that transform businesses.
+            Strategic IT planning, cloud infrastructure, and security.
           </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.4 }}
-          >
-            <a href="#services" className="btn btn-white">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center px-4">
+            <a
+              href="#services"
+              className="w-full sm:w-auto px-8 py-3.5 bg-white text-[#0a0a0a] font-[family-name:var(--font-orbitron)] text-sm uppercase tracking-wider hover:bg-white/90 transition-all rounded-sm"
+            >
               Explore Solutions
             </a>
-            <a href="#contact" className="btn btn-secondary border-white/30 text-white hover:bg-white hover:text-black">
-              Contact Us
+            <a
+              href="#contact"
+              className="w-full sm:w-auto px-8 py-3.5 border border-white/20 text-white/60 font-[family-name:var(--font-orbitron)] text-sm uppercase tracking-wider hover:bg-white/5 hover:text-white hover:border-white/30 transition-all rounded-sm"
+            >
+              Get In Touch
             </a>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.6 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mt-16 md:mt-20 pt-10 border-t border-white/10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
         >
           {[
             { value: '99.9%', label: 'Uptime' },
@@ -76,9 +74,13 @@ export default function Hero() {
             { value: '100+', label: 'Projects' },
             { value: '50+', label: 'Clients' },
           ].map((stat) => (
-            <div key={stat.label} className="stat-card">
-              <div className="stat-value stat-value-light">{stat.value}</div>
-              <div className="stat-label stat-label-light">{stat.label}</div>
+            <div key={stat.label} className="text-center">
+              <div className="font-[family-name:var(--font-orbitron)] text-xl sm:text-2xl md:text-3xl font-medium text-white/80">
+                {stat.value}
+              </div>
+              <div className="font-[family-name:var(--font-share-tech-mono)] text-[10px] sm:text-xs text-white/30 uppercase tracking-widest mt-1">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
@@ -86,19 +88,18 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3 }}
+        transition={{ delay: 1 }}
       >
-        <div className="flex flex-col items-center text-white/40">
-          <span className="text-xs tracking-widest mb-2 font-[family-name:var(--font-share-tech-mono)]">SCROLL</span>
-          <motion.div
-            className="w-[1px] h-10 bg-gradient-to-b from-white/40 to-transparent"
-            animate={{ scaleY: [1, 0.5, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </div>
+        <motion.div
+          className="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-2"
+          animate={{ y: [0, 4, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <div className="w-0.5 h-1.5 bg-white/30 rounded-full" />
+        </motion.div>
       </motion.div>
     </section>
   );

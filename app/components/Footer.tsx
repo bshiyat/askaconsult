@@ -136,7 +136,7 @@ export default function Footer() {
               {currentYear} AskAConsult. All rights reserved.
             </p>
             <div className="flex items-center gap-2 text-white/40 text-xs font-[family-name:var(--font-share-tech-mono)]">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
               Systems Operational
             </div>
           </div>

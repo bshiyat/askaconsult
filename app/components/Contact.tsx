@@ -172,11 +172,11 @@ export default function Contact() {
 
               {isSubmitted && (
                 <motion.div
-                  className="mb-6 p-4 border border-green-500 bg-green-50"
+                  className="mb-6 p-4 border border-black bg-gray-50"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  <p className="font-[family-name:var(--font-share-tech-mono)] text-green-700">
+                  <p className="font-[family-name:var(--font-share-tech-mono)] text-black">
                     Message sent successfully! We&apos;ll get back to you soon.
                   </p>
                 </motion.div>
