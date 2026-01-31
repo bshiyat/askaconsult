@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 const industries = [
   {
     name: 'Healthcare',
@@ -64,30 +60,20 @@ export default function Industries() {
     <section id="industries" className="section section-dark">
       <div className="container">
         {/* Section Header */}
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="section-header">
           <span className="section-tag section-tag-light">Industries</span>
           <h2 className="section-title text-white">Sectors We Serve</h2>
           <p className="section-subtitle section-subtitle-light">
             Specialized expertise across diverse industry verticals
           </p>
-        </motion.div>
+        </div>
 
         {/* Industries Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {industries.map((industry, index) => (
-            <motion.div
+          {industries.map((industry) => (
+            <div
               key={industry.name}
               className="card card-dark text-center group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="flex flex-col items-center">
                 <div className="mb-4 text-white/50 group-hover:text-white transition-colors">
@@ -100,7 +86,7 @@ export default function Industries() {
                   {industry.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

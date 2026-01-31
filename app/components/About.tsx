@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 const coreValues = [
   {
     icon: '01',
@@ -30,28 +26,16 @@ export default function About() {
     <section id="about" className="section">
       <div className="container">
         {/* Section Header */}
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="section-header">
           <span className="section-tag">About Us</span>
           <h2 className="section-title">Who We Are</h2>
           <p className="section-subtitle">
             Empowering businesses with intelligent technology solutions
           </p>
-        </motion.div>
+        </div>
 
         {/* Mission Statement */}
-        <motion.div
-          className="max-w-4xl mx-auto mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <div className="max-w-4xl mx-auto mb-20">
           <div className="card border-l-4 border-l-black">
             <div className="flex items-start gap-6">
               <span className="text-black text-5xl font-[family-name:var(--font-orbitron)] hidden sm:block font-light">//</span>
@@ -67,18 +51,14 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Core Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {coreValues.map((value, index) => (
-            <motion.div
+          {coreValues.map((value) => (
+            <div
               key={value.title}
               className="card text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <span className="number-badge block mb-4">
                 {value.icon}
@@ -89,7 +69,7 @@ export default function About() {
               <p className="font-[family-name:var(--font-share-tech-mono)] text-gray-500 text-sm">
                 {value.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

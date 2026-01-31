@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const industries = [
   'Healthcare',
@@ -48,28 +47,17 @@ export default function Contact() {
     <section id="contact" className="section section-gray">
       <div className="container">
         {/* Section Header */}
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="section-header">
           <span className="section-tag">Contact</span>
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle">
             Ready to transform your business? Let&apos;s start a conversation.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="card-animate">
             <div className="card h-full bg-white">
               <h3 className="font-[family-name:var(--font-orbitron)] text-2xl text-black mb-8">
                 Contact Information
@@ -156,30 +144,21 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <div className="card-animate">
             <form onSubmit={handleSubmit} className="card bg-white border-2 border-black">
               <h3 className="font-[family-name:var(--font-orbitron)] text-2xl text-black mb-6">
                 Send Message
               </h3>
 
               {isSubmitted && (
-                <motion.div
-                  className="mb-6 p-4 border border-black bg-gray-50"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
+                <div className="mb-6 p-4 border border-black bg-gray-50 animate-fadeIn">
                   <p className="font-[family-name:var(--font-share-tech-mono)] text-black">
                     Message sent successfully! We&apos;ll get back to you soon.
                   </p>
-                </motion.div>
+                </div>
               )}
 
               <div className="space-y-5">
@@ -298,7 +277,7 @@ export default function Contact() {
                 </div>
               </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

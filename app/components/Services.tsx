@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 const services = [
   {
     id: '01',
@@ -79,30 +75,20 @@ export default function Services() {
     <section id="services" className="section section-gray">
       <div className="container">
         {/* Section Header */}
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="section-header">
           <span className="section-tag">Services</span>
           <h2 className="section-title">What We Do</h2>
           <p className="section-subtitle">
             Comprehensive IT solutions tailored to your business needs
           </p>
-        </motion.div>
+        </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
+          {services.map((service) => (
+            <div
               key={service.id}
               className="card bg-white group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="flex flex-col h-full">
                 {/* Header */}
@@ -152,7 +138,7 @@ export default function Services() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

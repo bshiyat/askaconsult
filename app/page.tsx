@@ -8,10 +8,12 @@ import Industries from './components/Industries';
 import WhyUs from './components/WhyUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollAnimations from './components/ScrollAnimations';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <ScrollAnimations />
       <Navbar />
       <Hero />
       <About />
